@@ -54,7 +54,7 @@ Each unicorn instance is named after its directory, so for an app called `/home/
 
 You can always change those defaults by editing the scripts.
 
-## Example app config file.
+## Example app config file
 
 Please note, the first few lines determine app names and paths based on DEPLOY_ENV or RAILS_ENV (if changed to RAILS_ENV)
 
