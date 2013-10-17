@@ -4,11 +4,11 @@ Manage multiple Unicorn servers as services on the same box using Ubuntu upstart
 
 # Wait, what?
 
-This is a copy-paste-tweak from the Puma project's [Jungle](https://github.com/puma/puma/tree/master/tools/jungle/upstart).
+This is a copy-paste-tweak from the Puma project's [Jungle](https://github.com/puma/puma/tree/master/tools/jungle/upstart). I wanted to give Puma love, but Unicorn just seemed to work better for me.
 
 One addition is the reliance on a blank flat file to determine Rails/Rack environment,
 in order to support multistage deployments. For example, if the presence of YOUR_PROJECT/config/rack_env_staging
-is detected in /etc/init/unicorn.conf, either RAILS_ENV or DEPLOY_ENV will be set accordingly.
+is detected (in /etc/init/unicorn.conf), either RAILS_ENV or DEPLOY_ENV will be set accordingly.
 
 Note: DEPLOY_ENV is used instead of RACK_ENV because setting the -E flag to production in the start command overrides the RACK_ENV.
 This way you can still run a staging environment under production.
@@ -54,7 +54,9 @@ Each unicorn instance is named after its directory, so for an app called `/home/
 
 You can always change those defaults by editing the scripts.
 
-## Here's an example app's config file. Please note, the first few lines determine app names and paths based on DEPLOY_ENV or RAILS_ENV (if changed to RAILS_ENV)
+## Example app config file.
+
+Please note, the first few lines determine app names and paths based on DEPLOY_ENV or RAILS_ENV (if changed to RAILS_ENV)
 
 ```
 env_apps_map = {
