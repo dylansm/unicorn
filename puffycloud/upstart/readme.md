@@ -84,4 +84,4 @@ You need to customise `unicorn.conf` to:
 * Set the right user your app should be running on unless you want root to execute it!
   * Look for `setuid apps` and `setgid apps`, uncomment those lines and replace `apps` to whatever your deployment user is.
   * Replace `apps` on the paths (or set the right paths to your user's home) everywhere else.
-* Uncomment the source lines for `rbenv` or `rvm` support unless you use a system wide installation of Ruby.
+* The relatively klugey conditional logic around `rbenv` or `rvm` support can be avoided by choosing your particular tool. Or use system-wide ruby, if you must.
